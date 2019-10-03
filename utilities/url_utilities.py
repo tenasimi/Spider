@@ -9,7 +9,7 @@ from bs4 import BeautifulSoup  # Alt + Enter  bu setiri yazacaq bura
 def load_urls_from_file(file_path: str):
     try:
         with open(file_path) as f:
-            content = f.readline()
+            content = f.readlines()
             return content
     except FileNotFoundError:
         print("the file " + file_path + " could not be found")
@@ -45,8 +45,8 @@ def scrape_page(page_contents: str):  # beautifulSoup screen-scraping library is
         clean = True
 
         # no punctuation
-        for punc in string.punctuation:
-            if punc in word:
+        for punctuation_marks in string.punctuation:
+            if punctuation_marks in word:
                 clean = False
 
                 # no numbers
